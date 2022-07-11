@@ -1,0 +1,27 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("practice", "Synapse")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Gun Givers")
+Section:NewButton("Remington-870", "Gives the localplayer a Remington", function(v)
+    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["Remington 870"].ITEMPICKUP
+local Event = game:GetService("Workspace").Remote.ItemHandler
+Event:InvokeServer(A_1)
+end)
+Section:NewButton("AK-47", "Gives the localplayer an AK", function(v)
+    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["AK-47"].ITEMPICKUP
+local Event = game:GetService("Workspace").Remote.ItemHandler
+Event:InvokeServer(A_1)
+end)
+Section:NewButton("M9", "Gives the localplayer an M9", function(v)
+    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["M9"].ITEMPICKUP
+local Event = game:GetService("Workspace").Remote.ItemHandler
+Event:InvokeServer(A_1)
+end)
+local Tab = Window:NewTab("Humanoid")
+local Section = Tab:NewSection("Walkspeed")
+Section:NewSlider("Walkspeed", "Changes the localplayers walkspeed.", 500, 16, function(v) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end)
+Section:NewSlider("JumpPower", "Changes the localplayers JumpPower", 500, 50, function(v) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+end)
